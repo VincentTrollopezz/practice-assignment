@@ -4,33 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jace Dang</title>
+    <link rel="stylesheet" type="text/css" href="theme.css">
+    <title>Jace Dang and Matthew Sickler</title>
 </head>
 <body>
-     <h1>Matthew Sickler</h1>
-     <h1> nice </h1>
-     <p>Our project is to create a program which will have the players choose their choices and those choices will lead to one specific ending. -m </p>
-     <script>
+<!--Reference for textFeildInput: https://www.youtube.com/watch?v=lThuZY0-S_8 -->
 
-        function storyPaths(){
-            
-        } 
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     </script> 
+<input id="adventurer" placeholder="Enter your desired name">
+<button onclick="getName()" id="buutoo">Let's Start!</button>
+
+    <script>
+
+    var usrName = ""
+
+
+    function getName(){
+        var str = document.getElementById("adventurer").value;
+        usrName = str;
+        console.log(usrName);
+        displayMyStory();
+
+    }
+    </script>
+
+
+                                        <!--Code for the story to work-->
+    <!--Container for the story-->
+    <div id="theStory">
+
+    </div>
+    <!--Container for the buttons-->
+    <div id="buttons">
+
+    </div>
+
+    <script>    
+    //creates story
+
+
+    let storyTracker=document.getElementById("theStory");
+
+    let buttonTracker=document.getElementById("buttons");
+    
+    let pastStory=["start","monz"];
+
+    function createStory(text){
+        let storyText=document.createElement("p");
+        storyText.innerText=text;
+        storyTracker.appendChild(storyText);
+    }
+    //Displays story on screen
+
+    function displayMyStory(){
+        let chunk=pastStory[pastStory.length -1];
+        storyTracker.innerHTML="";
+        buttonTracker.innerHTML="";
+        for(let page of pastStory){
+            createStory(story[page].text());
+        }
+        for(let choice of story[chunk].choices){
+            createButton(choice[0], choice[1])
+        }
+    }
+    //Shorthand buttonCreation
+
+    function createButton(booto, choice){
+        let button=document.createElement("button");
+        button.innerHTML=booto;
+        buttonTracker.appendChild(button);
+        button.addEventListener("click", function(){
+            pastStory.push(choice);
+            displayMyStory();
+        });
+    }
+    //Run everything on the page
+
+                                        /*The actually story writing and choice options*/
+
+    const story = {
+        start : {
+            text : function(){ return usrName + " make an intro"},
+            choices:[
+                ["Get the monz","monz"],
+                ["Get no monz", "broke"],
+                ["Get all the monz", "all"]
+            ]
+        },
+        monz:{
+            text : function(){return "hooway"} ,
+            choices:[]
+        },
+        broke:{
+            text:"am broke",
+            choices:[
+                ["bruh"]
+            ]
+        },
+        all:{
+            text:"AM RICH",
+            choices:[]
+        }
+    }   
+</script>
+
+
 </body>
- 
-  
-
 </html>
