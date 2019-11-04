@@ -37,6 +37,25 @@
     <div id="buttons">
 
     </div>
+    <style>
+    body{
+        background-color: rgb(36, 35, 35);
+    }
+    
+    
+    button{
+        background-color:rgb(170, 64, 64);
+        color:white;
+        border-radius: 4px; 
+        border: 4
+        px solid grey;
+        padding:3px 15px;
+    }
+    
+    p{
+        color:whitesmoke
+    }
+    </style>
 
     <script>    
     //creates story
@@ -46,7 +65,7 @@
 
     let buttonTracker=document.getElementById("buttons");
     
-    let pastStory=["start","monz"];
+    let pastStory=["start"];
 
     function createStory(text){
         let storyText=document.createElement("p");
@@ -83,27 +102,91 @@
 
     const story = {
         start : {
-            text : function(){ return usrName + " make an intro"},
+            text : function(){ return "You were born 2 days ago, and your parents threw you away. Welp not a good start for a future adventurer like you. But you can choose to get adopt by who you want. Think clearly and good luck " + usrName},
             choices:[
-                ["Get the monz","monz"],
-                ["Get no monz", "broke"],
-                ["Get all the monz", "all"]
+                ["Adopted by monster","mons"],
+                ["Adopted by human", "human"],
+                ["Adopted by God", "God"]
             ]
         },
-        monz:{
-            text : function(){return "hooway"} ,
-            choices:[]
-        },
-        broke:{
-            text:"am broke",
+        mons:{
+            text : function(){return "You have been adopted by a monster, his name is Erzan, a nice monster. Every monster in the village seems to like you, they raise you well enough for you to know all about survival and hunting skills. As time go toward, you are 18. Today is your birthday, Erzan intends to ask you to go on a hunting trip with him."} ,
             choices:[
-                ["bruh"]
+                ["Go with Erzan","yesErzan"],
+                ["Ask Erzan to stay home and enjoy your birthday party.","noErzan"]
             ]
         },
-        all:{
-            text:"AM RICH",
-            choices:[]
-        }
+        human:{
+            text : function(){return " \"Who putted this basket right here ?\", a woman\'s voice said." + "\n" +
+' "Wh-wh-what! A baby ? I always wonder why humans can be this cruel to abandon their child" ' + "sign, she picks up the basket and say," + ' "Lucky you little brat that I found you, I think we will have a good time together" ' + "\n"  +
+"You have been adopted by a woman named Elora, she is a witch, who wish to have a peaceful life among the humans. You spent 18 years with her, and today is your 18th birthday. You wonder how big is the world outside the village you live in."
+},
+            choices:[
+                ["Ask Elora to move out and go on an adventure by yourself.","moveOut"],
+                ["Feel insecure, stay home and ask Elora to teach you more about magic.","learnMagic"]
+            ]
+        },
+        God:{
+            text : function (){return "You see a guy’re holding a thunder in his hand, on the other hand you see him holding something round, water dropping down, but you still a baby, so you don’t have any question, and you will forget this soon." + "\n" + 
+"God says." + "\n" +
+"-Hm, so this tiny living creature is the result of crossed my forbid line? How fun it will be if I adopt this thing and raise him as my tool, this thing might be useful in the future." + "\n" +
+"You have been adopted by God, the ruler of the world. You live a wealthy life, with friends, family, and everyone loves you. God teaches you how to harness your hidden power. You could use 30% of that power. Don’t underestimate 30%, compared to God, your 30% is equal to 5% of God. Today is your 18th birthday, God asks you if you want to help Marco, a believer, to raid a monster’s village, and prevent the dangers could come to humans." 
+},
+            choices:[
+                ["You accept the quest and raid the village with Marco.","helpMarco"],
+                ["You have plan with your friends, so you don’t go with Marco.","whoCaresAboutMarco"]
+            ]
+        },
+        yesErzan: {
+            text : function (){return "You go hunting with Erzan, in the trip you meet Marco. A powerful knight who’s looking for his master as the family will. Coincidence, you are his master. Would you like to take him as your servant ? Remember, Marco has his own army, which can be helpful in the future."},
+            choices :[
+                ["take Marco","getSlave"],
+                ["don’t take Marco."]
+            ]
+
+
+        },
+        noErzan:{
+            text : function (){return ""},
+            choices :[
+                [],
+                []
+            ]
+
+        },
+        moveOut:{
+            text : function (){return ""},
+            choices :[
+                [],
+                []
+            ]
+
+        },
+        learnMagic :{
+            text : function (){return ""},
+            choices :[
+                [],
+                []
+            ]
+
+        },
+        helpMarco :{
+            text : function (){return ""},
+            choices :[
+                [],
+                []
+            ]
+
+        },
+        whoCaresAboutMarco:{
+            text : function (){return ""},
+            choices :[
+                [],
+                []
+            ]
+
+        },
+
     }   
 </script>
 
